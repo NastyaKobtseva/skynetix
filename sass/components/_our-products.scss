@@ -1,0 +1,285 @@
+#products {
+    padding: 80px 20px;
+    background-color: #1a202c;
+  }
+  /* Заголовок */
+  #products .header {
+    text-align: center;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+  }
+  #products .header.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #products h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  #products .divider {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: #2563eb; /* blue-600 */
+    margin: 0 auto 2rem;
+    border-radius: 4px;
+  }
+  #products p.lead {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    color: #a0aec0; /* gray-300 */
+  }
+
+  /* Сітка продуктів */
+  .products-grid {
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+  }
+  @media(min-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .product-card {
+    position: relative;
+    background-color: #2d3748; /* gray-800 */
+    border: 1px solid #4a5568; /* gray-700 */
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .product-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .product-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.6);
+    transform: translateY(-8px);
+  }
+
+  .product-image-wrapper {
+    position: relative;
+    height: 16rem;
+    overflow: hidden;
+  }
+  .product-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-image-wrapper img {
+    transform: scale(1.1);
+  }
+
+  /* Темний градієнтний оверлей зверху картинки */
+  .product-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(17,17,17,0.8), transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Підсвічений оверлей при hover */
+  .product-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(17, 17, 17, 0.8);
+  color: #cbd5e1; /* gray-300 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  pointer-events: none;
+  flex-direction: column;
+}
+.product-card:hover .product-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+  pointer-events: auto;
+}
+  .product-overlay i {
+    font-size: 2.5rem;
+    color: #3b82f6; /* blue-400 */
+    margin-bottom: 1rem;
+  }
+  .product-overlay p {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .product-overlay a {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  .product-overlay a:hover {
+    background-color: #1d4ed8;
+  }
+
+  /* Текстовий блок продукту */
+  .product-content {
+    padding: 1.5rem 1.5rem 2rem;
+    color: #a0aec0; /* gray-400 */
+  }
+  .product-content h3 {
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .product-content h3 i {
+    color: #3b82f6;
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+  }
+  .product-content p {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  .product-content .learn-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3b82f6;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+  }
+  .product-content .learn-more i {
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover .learn-more i {
+    transform: translateX(8px);
+  }
+
+  /* Нижній текст і кнопка */
+  .products-footer {
+    margin-top: 3rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease 0.7s;
+    color: #a0aec0;
+  }
+  .products-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .products-footer a {
+    display: inline-block;
+    border: 2px solid #2563eb;
+    color: #3b82f6;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    margin: 20px 0 0 0;
+  }
+  .products-footer a:hover {
+    background-color: #2563eb;
+    color: white;
+  }
+@media (max-width: 480px) {
+  #products {
+    padding: 3rem 1rem;
+  }
+  #products h2 {
+    font-size: 2rem;
+  }
+  #products .divider {
+    width: 4rem;
+    height: 0.2rem;
+    margin-bottom: 1.5rem;
+  }
+  #products p.lead {
+    font-size: 1rem;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .product-card {
+    transform: translateY(20px);
+  }
+  .product-content h3 {
+    font-size: 1.1rem;
+  }
+  .product-content p {
+    font-size: 0.8rem;
+  }
+  .products-footer {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+  .products-footer a {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Планшетна версія 481px - 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+  #products {
+    padding: 4rem 1.5rem;
+  }
+  #products h2 {
+    font-size: 2.5rem;
+  }
+  #products .divider {
+    width: 5rem;
+    height: 0.25rem;
+    margin-bottom: 1.8rem;
+  }
+  #products p.lead {
+    font-size: 1.1rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .product-content h3 {
+    font-size: 1.2rem;
+  }
+  .product-content p {
+    font-size: 0.85rem;
+  }
+  .products-footer a {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+

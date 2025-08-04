@@ -1,0 +1,194 @@
+.footer {
+  background-color: #111827; /* dark gray */
+  border-top: 1px solid #1f2937; /* darker border */
+  color: #d1d5db; /* light gray text */
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Grid layout for top sections */
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Company info */
+.footer__company {
+  grid-column: span 2;
+}
+
+.footer__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.footer__logo img {
+  max-width: 100px; /* або підбери свій розмір */
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* якщо потрібно зробити лого білим (для темного фону) */
+}
+.footer__description {
+  color: #9ca3af;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+}
+
+/* Social media links */
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer__social-link {
+  background-color: #1f2937;
+  width: 40px;
+  height: 40px;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.footer__social-link:hover {
+  background-color: #2563eb; /* blue */
+  color: white;
+}
+
+/* Section titles */
+.footer__title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Lists and links */
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__list li {
+  margin-bottom: 0.75rem;
+}
+
+.footer__link,
+.footer__link:visited {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Contact Info Bar */
+.footer__contact-bar {
+  border-top: 1px solid #1f2937;
+  padding: 2rem 2rem 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 150px;
+}
+.footer__contact-item a {
+color: #9ca3af;
+text-decoration: none;
+}
+
+.footer__icon {
+  font-size: 1.3rem;
+}
+
+.footer__icon--blue {
+  color: #3b82f6;
+}
+
+.footer__icon--green {
+  color: #22c55e;
+}
+
+.footer__icon--purple {
+  color: #a78bfa;
+}
+
+/* Bottom bar */
+.footer__bottom-bar {
+  border-top: 1px solid #1f2937;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: #6b7280;
+  font-size: 0.85rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__policy-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__policy-link {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__policy-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer__company {
+    grid-column: span 1;
+  }
+  .footer__contact-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .footer__bottom-bar {
+    flex-direction: column;
+    gap: 1rem;
+    // text-align: center;
+  }
+  .footer__contact-bar {
+    padding: 2rem 0 0 0;
+  }
+}

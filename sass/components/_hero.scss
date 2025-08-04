@@ -1,0 +1,139 @@
+#hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url("../image/hero/bg-image.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* --- Темний градієнтний оверлей --- */
+  #hero .dark-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(17,17,17,0.9),
+      rgba(17,17,17,0.7),
+      rgba(17,17,17,0.9)
+    );
+    z-index: 1;
+  }
+
+
+  /* --- Основний контент --- */
+  #hero .content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    color: #eee;
+    transition: opacity 1s, transform 1s;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  #hero .content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #fff, #c0d8ff, #ddd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  #hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    color: #bbb;
+  }
+
+  /* --- Кнопки --- */
+  #hero .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #hero button {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  #hero button.primary {
+    background-color: #2563eb;
+    color: white;
+  }
+  #hero button.primary:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.05);
+  }
+  #hero button.secondary {
+    background-color: transparent;
+    color: #bbb;
+    border: 2px solid #999;
+  }
+  #hero button.secondary:hover {
+    color: white;
+    border-color: white;
+    transform: scale(1.05);
+  }
+
+  /* --- Індикатор скролу вниз --- */
+  #hero .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 10;
+    border: none;
+    background: none;
+  }
+  #hero .scroll-indicator:hover {
+    color: white;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(15px);
+    }
+  }
+
+  /* --- Адаптив --- */
+  @media (min-width: 768px) {
+    #hero h1 {
+      font-size: 4.5rem;
+    }
+    #hero p {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 480px) {
+        #hero button {
+        width: 100%;
+    }
+  }
