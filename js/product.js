@@ -623,6 +623,7 @@ function createProductGrid(items) {
           </div>
           <h3>${item.title}</h3>
           <p>${item.description || ''}</p>
+          <a class="price-inquiry-link" href="./index.html#contact">Звʼяжіться з нами для уточнення цін</a>
           <button onclick="showDetails(${index})">Детальніше</button>
         </div>
       `
@@ -640,6 +641,10 @@ function createDetailsBlock(product, index) {
       ${item.downloadButtonText || 'Завантажити PDF'}
     </a>`
   : '';
+  const priceRequestButtonHTML = `
+  <a href="./index.html#contact" class="request-price-button" aria-label="Запит цінової пропозиції">
+    Запит цінової пропозиції
+  </a>`;
   const technicalSpecsHTML = item.technicalSpecs
     ? `<h3 class="section-title">Технічні характеристики</h3>
        <div class="technical-specs">
@@ -669,7 +674,10 @@ function createDetailsBlock(product, index) {
           <p>${item.description || ''}</p>
           ${technicalSpecsHTML}
           ${keyFeaturesHTML}
-          ${downloadButtonHTML}
+          <div class="button-row">
+            ${downloadButtonHTML}
+            ${priceRequestButtonHTML}
+          </div>
           <button class="close-button" onclick="closeDetails()" aria-label="Закрити">&times;</button>
         </div>
       </div>

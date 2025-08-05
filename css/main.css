@@ -1646,16 +1646,12 @@ input[type=tel] {
     padding: 30px 20px;
   }
 }
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .footer {
     padding: 50px 20px;
   }
   .footer__company {
     grid-column: span 1;
-  }
-  .footer__contact-bar {
-    flex-direction: column;
-    gap: 1rem;
   }
   .footer__bottom-bar {
     flex-direction: column;
