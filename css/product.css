@@ -1,7 +1,6 @@
 @charset "UTF-8";
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
   font-family: "Inter", sans-serif;
 }
 
@@ -203,7 +202,7 @@ nav {
   height: 100vh;
   width: 100vw;
   background-color: #1f2937;
-  padding: 70px 24px 32px 24px;
+  padding: 100px 24px 32px 24px;
   z-index: 9998;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
@@ -453,7 +452,15 @@ nav {
 }
 
 /* Responsive tweaks */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 50px 20px;
+  }
   .footer__company {
     grid-column: span 1;
   }
@@ -469,6 +476,11 @@ nav {
     padding: 2rem 0 0 0;
   }
 }
+body.modal-open,
+html.modal-open {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -813,7 +825,7 @@ img {
 
 @media (max-width: 480px) {
   .hero {
-    padding-top: 48px;
+    padding-top: 85px;
     padding-bottom: 32px;
     padding-left: 12px;
     padding-right: 12px;
@@ -865,6 +877,9 @@ img {
     margin-top: 16px;
     text-align: center;
   }
+  .drone-details-inner p {
+    text-align: center;
+  }
   .technical-specs {
     flex-direction: column;
     gap: 0.5rem;
@@ -892,7 +907,7 @@ img {
 /* Адаптивність для планшетів (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .hero {
-    padding-top: 72px;
+    padding-top: 90px;
     padding-bottom: 48px;
     padding-left: 20px;
     padding-right: 20px;

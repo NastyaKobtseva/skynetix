@@ -10,10 +10,8 @@ function updateFavicon() {
   }
 }
 
-// Викликаємо одразу при завантаженні
 updateFavicon();
 
-// Слухаємо зміни теми в реальному часі
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", updateFavicon);

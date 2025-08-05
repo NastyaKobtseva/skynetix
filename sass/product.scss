@@ -1,6 +1,5 @@
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
   font-family: "Inter", sans-serif;
 }
 
@@ -57,7 +56,10 @@ a {
 
 @import "./components/header";
 @import "./components/footer";
-
+body.modal-open,
+html.modal-open {
+  overflow: hidden;
+}
 img {
   max-width: 100%;
   display: block;
@@ -400,7 +402,7 @@ img {
 
 @media (max-width: 480px) {
   .hero {
-    padding-top: 48px;
+    padding-top: 85px;
     padding-bottom: 32px;
     padding-left: 12px;
     padding-right: 12px;
@@ -462,7 +464,9 @@ img {
     margin-top: 16px;
     text-align: center;
   }
-
+  .drone-details-inner p {
+    text-align: center;
+  }
   .technical-specs {
     flex-direction: column;
     gap: 0.5rem;
@@ -495,7 +499,7 @@ img {
 /* Адаптивність для планшетів (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   .hero {
-    padding-top: 72px;
+    padding-top: 90px;
     padding-bottom: 48px;
     padding-left: 20px;
     padding-right: 20px;

@@ -688,7 +688,7 @@ function renderPage() {
     return;
   }
 
-  setPageTitle(product.title); // Оновлюємо title сторінки динамічно
+  setPageTitle(product.title); 
 
   const content = `
     ${createHero(product.title, product.description, product.heroImage)}
@@ -705,7 +705,7 @@ function setupAnimations() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // анімація лише 1 раз
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -731,7 +731,6 @@ function showDetails(index) {
     return;
   }
 
-  // Замість createModal викликаємо createDetailsBlock
   const modalHTML = createDetailsBlock(product, index);
 
   const existingModal = document.querySelector(".drone-details");
@@ -744,6 +743,7 @@ function showDetails(index) {
     console.error("Не вдалося створити модальне вікно");
     return;
   }
+  document.body.classList.add("modal-open");
 
   requestAnimationFrame(() => {
     modal.classList.add("visible");
@@ -754,10 +754,9 @@ function closeDetails() {
   const modal = document.querySelector(".drone-details");
   if (!modal) return;
 
-  // Спочатку прибираємо клас .visible, щоб запустилась анімація
   modal.classList.remove("visible");
+  document.body.classList.remove("modal-open");
 
-  // Через час, що дорівнює тривалості transition, видаляємо елемент
   setTimeout(() => {
     modal.remove();
   }, 600);

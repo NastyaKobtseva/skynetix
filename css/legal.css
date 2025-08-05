@@ -193,7 +193,7 @@ nav {
   height: 100vh;
   width: 100vw;
   background-color: #1f2937;
-  padding: 70px 24px 32px 24px;
+  padding: 100px 24px 32px 24px;
   z-index: 9998;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
@@ -443,7 +443,15 @@ nav {
 }
 
 /* Responsive tweaks */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 50px 20px;
+  }
   .footer__company {
     grid-column: span 1;
   }

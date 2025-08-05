@@ -193,7 +193,7 @@ nav {
   height: 100vh;
   width: 100vw;
   background-color: #1f2937;
-  padding: 70px 24px 32px 24px;
+  padding: 100px 24px 32px 24px;
   z-index: 9998;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
@@ -538,6 +538,9 @@ nav {
 }
 
 @media (max-width: 480px) {
+  #about {
+    padding: 30px 20px;
+  }
   #about h2 {
     font-size: 2rem;
   }
@@ -568,7 +571,7 @@ nav {
 /* Планшетна версія 481px - 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   #about {
-    padding: 4rem 1.5rem;
+    padding: 50px 20px;
   }
   #about h2 {
     font-size: 2.5rem;
@@ -835,7 +838,7 @@ nav {
 
 @media (max-width: 480px) {
   #products {
-    padding: 3rem 1rem;
+    padding: 30px 20px;
   }
   #products h2 {
     font-size: 2rem;
@@ -875,7 +878,7 @@ nav {
 /* Планшетна версія 481px - 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   #products {
-    padding: 4rem 1.5rem;
+    padding: 50px 20px;
   }
   #products h2 {
     font-size: 2.5rem;
@@ -1079,6 +1082,16 @@ nav {
   background-color: #382749;
 }
 
+@media (max-width: 480px) {
+  .why-skynetix-section {
+    padding: 30px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .why-skynetix-section {
+    padding: 50px 20px;
+  }
+}
 .contact-section {
   padding: 80px 20px;
   background-color: #0f172a;
@@ -1385,6 +1398,9 @@ input[type=tel] {
 }
 
 @media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 20px;
+  }
   .section-header h2 {
     font-size: 28px;
   }
@@ -1408,6 +1424,9 @@ input[type=tel] {
 }
 /* Планшетна версія - від 481px до 767px */
 @media (min-width: 481px) and (max-width: 767px) {
+  .contact-section {
+    padding: 50px 20px;
+  }
   .section-header h2 {
     font-size: 34px;
   }
@@ -1622,7 +1641,15 @@ input[type=tel] {
 }
 
 /* Responsive tweaks */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 50px 20px;
+  }
   .footer__company {
     grid-column: span 1;
   }

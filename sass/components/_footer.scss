@@ -175,7 +175,15 @@ text-decoration: none;
   text-decoration: underline;
 }
 /* Responsive tweaks */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    padding: 50px 20px;
+  }
   .footer__company {
     grid-column: span 1;
   }

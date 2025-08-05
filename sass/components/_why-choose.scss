@@ -147,3 +147,14 @@
   background-color: #382749;
 }
 
+@media (max-width: 480px) {
+  .why-skynetix-section {
+    padding: 30px 20px;
+  }
+
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .why-skynetix-section {
+    padding: 50px 20px;
+  }
+}
