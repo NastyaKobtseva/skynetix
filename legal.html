@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="favicon" rel="shortcut icon" href="./image/header/logo-skynetix-white.svg"> 
+    <link id="favicon" rel="shortcut icon" href="./image/header/logo-white.svg"> 
     <link rel="canonical" href="https://skynetix.com.ua">
     <title id="page-title">Правова інформація</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,9 +29,11 @@
 
     <header id="header">
         <nav>
-            <div class="logo"><img src="./image/header/logo-skynetix-white.svg" alt="Skynetix Logo"></div>
+             <a href="./index.html#hero" class="logo">
+                <img src="./image/header/logo-white.svg" alt="Skynetix Logo">
+             </a>
             <div class="nav-links">
-                <a href="./index.html" data-section="hero">Головна</a>
+                <a href="./index.html#hero" data-section="hero">Головна</a>
                 <a href="./index.html#about" data-section="about">Про нас</a>
 
                 <div style="position: relative;">
@@ -39,9 +41,9 @@
                         Продукція <i class="ri-arrow-down-s-line"></i>
                     </button>
                     <div class="dropdown-menu" id="productsDropdown">
-                        <a href="./product.html?product=drones"><i class="ri-flight-takeoff-line"></i> Дрони</a>
-                        <a href="./product.html?product=reb"><i class="ri-radar-line"></i> Системи РЕБ</a>
-                        <a href="./product.html?product=skynetix2"><i class="ri-battery-charge-line"></i> Skynetix 2 + АКБ</a>
+                        <a href="./product.html?product=multi"><i class="ri-truck-line"></i>Авто / Багатоканальний РЕБ</a>
+                        <a href="./product.html?product=mobile"><i class="ri-user-settings-line"></i>Мобільні та персональні РЕБ</a>
+                        <a href="./product.html?product=control"><i class="ri-wifi-line"></i>ППРЧ для керування</a>
                     </div>
                 </div>
 
@@ -55,7 +57,7 @@
         </nav>
     </header>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="./index.html" data-section="hero">Головна</a>
+        <a href="./index.html#hero" data-section="hero">Головна</a>
         <a href="./index.html#about" data-section="about">Про нас</a>
 
         <div>
@@ -63,9 +65,9 @@
             Продукція <i class="ri-arrow-down-s-line"></i>
         </button>
         <div class="mobile-products-list" id="mobileProductsList">
-            <a href="./product.html?product=drones"><i class="ri-flight-takeoff-line"></i> Дрони</a>
-            <a href="./product.html?product=reb"><i class="ri-radar-line"></i> Системи РЕБ</a>
-            <a href="./product.html?product=skynetix2"><i class="ri-battery-charge-line"></i> Skynetix 2 + АКБ</a>
+            <a href="./product.html?product=multi"><i class="ri-truck-line"></i>Авто / Багатоканальний РЕБ</a>
+            <a href="./product.html?product=mobile"><i class="ri-user-settings-line"></i>Мобільні та персональні РЕБ</a>
+            <a href="./product.html?product=control"><i class="ri-wifi-line"></i>ППРЧ для керування</a>
         </div>
         </div>
 
@@ -100,22 +102,24 @@
 
             <!-- Блок компанії -->
             <div class="footer__company">
-                <div class="footer__logo"><img src="./image/header/logo-skynetix-white.svg" alt="Skynetix Logo"></div>
+                <div class="footer__logo">
+                    <img src="./image/header/logo-white.svg" alt="Skynetix Logo">
+                </div>
                 <p class="footer__description">
-                Провідна компанія у сфері оборонних технологій, що спеціалізується на передових дрон-системах,
+                Група компанії у сфері оборонних технологій, що спеціалізується на передових дрон-системах,
                 рішеннях у сфері радіоелектронної боротьби та сучасних енергетичних системах для військових і цивільних потреб.
                 </p>
                 <div class="footer__socials">
-                <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/feed/" class="footer__social-link" aria-label="LinkedIn">
                     <i class="ri-linkedin-line"></i>
                 </a>
-                <a href="#" class="footer__social-link" aria-label="Twitter">
+                <a href="https://x.com/" class="footer__social-link" aria-label="Twitter">
                     <i class="ri-twitter-line"></i>
                 </a>
-                <a href="#" class="footer__social-link" aria-label="Facebook">
+                <a href="https://www.facebook.com/" class="footer__social-link" aria-label="Facebook">
                     <i class="ri-facebook-line"></i>
                 </a>
-                <a href="#" class="footer__social-link" aria-label="YouTube">
+                <a href="https://www.youtube.com/" class="footer__social-link" aria-label="YouTube">
                     <i class="ri-youtube-line"></i>
                 </a>
                 </div>
@@ -137,9 +141,9 @@
             <div class="footer__links">
                 <h3 class="footer__title">Продукти</h3>
                 <ul class="footer__list">
-                    <li><a href="./product.html?product=drones" class="footer__link">Передові дрони</a></li>
-                    <li><a href="./product.html?product=reb" class="footer__link">Системи РЕБ</a></li>
-                    <li><a href="./product.html?product=skynetix2" class="footer__link">Skynetix 2 + АКБ</a></li>
+                    <li><a href="./product.html?product=multi" class="footer__link">Авто / Багатоканальний РЕБ</a></li>
+                    <li><a href="./product.html?product=mobile" class="footer__link">Мобільні та персональні РЕБ</a></li>
+                    <li><a href="./product.html?product=control" class="footer__link">ППРЧ для керування</a></li>
                 </ul>
             </div>
             </div>
@@ -152,7 +156,7 @@
             </div>
             <div class="footer__contact-item">
                 <i class="ri-phone-line footer__icon footer__icon--green"></i>
-                <a href="tel:+380677593174">+380 67 759 3174</a>
+                <a href="https://wa.me/380677593174">+380 67 759 3174</a>
             </div>
             <div class="footer__contact-item">
                 <i class="ri-time-line footer__icon footer__icon--purple"></i>
@@ -162,7 +166,7 @@
 
             <!-- Нижній рядок -->
             <div class="footer__bottom-bar">
-            <p>© 2024 Skynetix Defense Technologies. Всі права захищені.</p>
+            <p>© 2024 Skynetix. Всі права захищені.</p>
             <div class="footer__policy-links">
                 <a href="./legal.html?page=privacy" class="footer__policy-link">Політика конфіденційності</a>
                 <a href="./legal.html?page=terms" class="footer__policy-link">Умови використання</a>

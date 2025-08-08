@@ -4,9 +4,9 @@ function updateFavicon() {
   const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   if (darkTheme) {
-    favicon.href = "./image/header/logo-skynetix-white.svg"; // для темної теми — біла іконка
+    favicon.href = "./image/header/logo-white.svg"; // для темної теми — біла іконка
   } else {
-    favicon.href = "./image/header/logo-skynetix.svg"; // для світлої теми — чорна іконка
+    favicon.href = "./image/header/logo-black.svg"; // для світлої теми — чорна іконка
   }
 }
 

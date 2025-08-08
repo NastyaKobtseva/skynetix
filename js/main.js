@@ -4,9 +4,9 @@ function updateFavicon() {
   const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   if (darkTheme) {
-    favicon.href = "./image/header/logo-skynetix-white.svg"; // для темної теми — біла іконка
+    favicon.href = "./image/header/logo-white.svg"; // для темної теми — біла іконка
   } else {
-    favicon.href = "./image/header/logo-skynetix.svg"; // для світлої теми — чорна іконка
+    favicon.href = "./image/header/logo-black.svg"; // для світлої теми — чорна іконка
   }
 }
 
@@ -156,34 +156,34 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const products = [
     {
-      id: "drones",
-      title: "Сучасні дрони",
+      id: "multi-channel-vehicle-reb",
+      title: "Авто / Багатоканальний РЕБ",
       description:
-        "Передові безпілотні літальні апарати для розвідки, спостереження та тактичних операцій.",
-      image: "./image/our-products/drone.webp",
-      link: "./product.html?product=drones",
-      icon: "ri-flight-takeoff-line",
+        "Потужні мобільні системи радіоелектронної боротьби, встановлені на автомобілях для придушення широкого спектра сигналів.",
+      image: "./image/our-products/multichannel-and-automotive-ew.webp",
+      link: "./product.html?product=multi",
+      icon: "ri-truck-line",
     },
     {
-      id: "reb-systems",
-      title: "Системи РЕБ",
+      id: "mobile-personal-reb",
+      title: "Мобільні та персональні РЕБ",
       description:
-        "Рішення для радіоелектронної боротьби: глушіння сигналів, електронна протидія та порушення звʼязку.",
-      image: "./image/our-products/reb.webp",
-      link: "./product.html?product=reb",
-      icon: "ri-radar-line",
+        "Компактні переносні рішення для глушіння звʼязку, призначені для індивідуального використання на полі бою.",
+      image: "./image/our-products/mobile-and-personal-ew.webp",
+      link: "./product.html?product=mobile",
+      icon: "ri-user-settings-line",
     },
     {
-      id: "skynetix-battery",
-      title: "Skynetix 2 + АКБ",
+      id: "frequency-hopping-control",
+      title: "ППРЧ для керування",
       description:
-        "Високопродуктивні енергосистеми та передові акумулятори для тривалої роботи.",
-      image: "./image/our-products/skynetix2.webp",
-      link: "./product.html?product=skynetix2",
-      icon: "ri-battery-charge-line",
+        "Технології перестрибуючої частоти для надійного управління звʼязком та протидії ворожому глушінню.",
+      image: "./image/our-products/pprch-for-control.webp",
+      link: "./product.html?product=control",
+      icon: "ri-wifi-line",
     },
   ];
-
+  
   const productsGrid = document.getElementById("productsGrid");
 
   // Додаємо продуктові карточки
@@ -194,13 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.transitionDelay = `${index * 0.2 + 0.3}s`;
 
     card.innerHTML = `
-        <div class="product-image-wrapper">
+        <div class="product-image-wrapper" style="height: 20rem;">
           <img src="${product.image}" alt="${product.title}" />
           <div class="product-image-overlay"></div>
           <div class="product-overlay">
             <i class="${product.icon}"></i>
             <p>${product.description}</p>
-            <a href="${product.link}">Подивитися "${product.title}"</a>
+            <a href="${product.link}">Деталі</a>
           </div>
         </div>
         <div class="product-content">
@@ -246,7 +246,6 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Провідні дослідження та власні технології",
       description:
         "Наша команда досліджень і розробок постійно розширює межі можливого в оборонних технологіях. Ми інвестуємо у власні розробки, які забезпечують нашим клієнтам тактичну перевагу.",
-      stats: "50+ патентів",
       color: "text-blue",
       bgColor: "bg-blue",
       borderColor: "border-blue",
@@ -257,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Рішення, перевірені в польових умовах",
       description:
         "Кожен продукт Skynetix проходить жорстке тестування в реальних умовах. Наші рішення довели свою ефективність у найвибагливіших операційних середовищах.",
-      stats: "99.8% безвідмовності",
       color: "text-green",
       bgColor: "bg-green",
       borderColor: "border-green",
@@ -268,7 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
       subtitle: "Універсальне використання для обох сфер",
       description:
         "Наші технології однаково ефективні у цивільних та військових сферах: від рятувальних операцій до тактичного застосування в обороні.",
-      stats: "40+ країн",
       color: "text-purple",
       bgColor: "bg-purple",
       borderColor: "border-purple",
@@ -293,16 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : "#a855f7"
       }">${f.subtitle}</p>
       <p>${f.description}</p>
-      <div class="stats-wrapper">
-        <div class="stats" style="color: ${
-          f.borderColor === "border-blue"
-            ? "#3b82f6"
-            : f.borderColor === "border-green"
-            ? "#22c55e"
-            : "#a855f7"
-        }">${f.stats}</div>
-        <div class="track">Доведена ефективність</div>
-      </div>
+      <div class="track">Доведена ефективність</div>
     `;
     div.style.transitionDelay = `${i * 200 + 300}ms`;
     grid.appendChild(div);
@@ -324,14 +312,354 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 // contact
+// document.addEventListener("DOMContentLoaded", () => {
+//   const categorySelect = document.getElementById("category");
+//   const subcategoryContainer = document.getElementById("subcategory-container");
+//   const subcategorySelect = document.getElementById("subcategory");
+
+//   const subcategoryOptions = {
+//     "auto-reb": [
+//       { value: "comm-resistant", label: "Завадостійка система зв'язку для БПЛА" },
+//       { value: "drone-detector", label: "Детектор БПЛА" },
+//     ],
+//     "mobile-reb": [
+//       { value: "reb-heavy", label: "РЕБ Heavy" },
+//       { value: "reb-goverla", label: "РЕБ Говерла" },
+//       { value: "reb-goverla-plus", label: "РЕБ Говерла 十十" },
+//       { value: "reb-light-v2", label: "РЕБ Light v 2" },
+//     ],
+//     "pprch": [
+//       { value: "skynetix-2-akb", label: "Skynetix 2 + АКБ" },
+//       { value: "reb-light-v1", label: "РЕБ Light v 1" },
+//     ],
+//   };
+
+//   categorySelect.addEventListener("change", () => {
+//     const selected = categorySelect.value;
+
+//     // Якщо для цієї категорії є підкатегорії — показуємо і заповнюємо select
+//     if (subcategoryOptions[selected]) {
+//       // Очищаємо попередні варіанти
+//       subcategorySelect.innerHTML = '<option value="" disabled selected hidden>Оберіть продукт</option>';
+
+//       // Додаємо нові опції
+//       subcategoryOptions[selected].forEach(({ value, label }) => {
+//         const option = document.createElement("option");
+//         option.value = value;
+//         option.textContent = label;
+//         subcategorySelect.appendChild(option);
+//       });
+
+//       // Показуємо блок з підкатегоріями
+//       subcategoryContainer.style.display = "block";
+//       subcategorySelect.required = true;
+//     } else {
+//       // Якщо нема підкатегорій — ховаємо блок і очищуємо
+//       subcategoryContainer.style.display = "none";
+//       subcategorySelect.innerHTML = "";
+//       subcategorySelect.required = false;
+//     }
+//   });
+// });
+
+
+
+
+
+// const form = document.getElementById("contactForm");
+// const submitBtn = document.getElementById("submitBtn");
+// const charCount = document.getElementById("charCount");
+// const formMessage = document.getElementById("formMessage");
+
+// const phoneInput = document.getElementById("phone");
+
+// const prefix = "+380 ";
+
+// const errorPhone = document.getElementById("error-phone");
+// const errorEmail = document.getElementById("error-email");
+// const errorComment = document.getElementById("error-comment");
+
+// // Початкове значення поля з префіксом
+// phoneInput.value = prefix;
+
+// // Форматування номера під час вводу
+// phoneInput.addEventListener("input", (e) => {
+//   const raw = phoneInput.value;
+
+//   if (!raw.startsWith(prefix)) {
+//     phoneInput.value = prefix;
+//     return;
+//   }
+
+//   const rest = raw.slice(prefix.length).replace(/[^\d]/g, "");
+//   let formatted = "";
+
+//   if (rest.length > 0) formatted += rest.slice(0, 2);
+//   if (rest.length >= 3) formatted += " " + rest.slice(2, 5);
+//   if (rest.length >= 6) formatted += " " + rest.slice(5, 9);
+
+//   phoneInput.value = prefix + formatted;
+
+//   // Якщо зараз валідно — сховати помилку
+//   if (validatePhone(phoneInput.value.trim())) {
+//     setError(errorPhone, "", false);
+//   }
+
+//   validateForm();
+// });
+
+// // Забороняємо стерти префікс
+// phoneInput.addEventListener("keydown", (e) => {
+//   if (
+//     phoneInput.selectionStart <= prefix.length &&
+//     (e.key === "Backspace" || e.key === "Delete")
+//   ) {
+//     e.preventDefault();
+//   }
+// });
+
+// // Забороняємо ставити курсор всередині префіксу
+// phoneInput.addEventListener("focus", () => {
+//   setTimeout(() => {
+//     if (phoneInput.selectionStart < prefix.length) {
+//       phoneInput.setSelectionRange(
+//         phoneInput.value.length,
+//         phoneInput.value.length
+//       );
+//     }
+//   }, 0);
+// });
+// phoneInput.addEventListener("click", () => {
+//   if (phoneInput.selectionStart < prefix.length) {
+//     phoneInput.setSelectionRange(
+//       phoneInput.value.length,
+//       phoneInput.value.length
+//     );
+//   }
+// });
+
+// // Валідаційні функції
+// function validatePhone(value) {
+//   const phoneRegex = /^\+380\s\d{2}\s\d{3}\s\d{4}$/;
+//   return phoneRegex.test(value);
+// }
+
+// function validateEmail(value) {
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   return emailRegex.test(value);
+// }
+
+// function validateCommentLength(value) {
+//   return value.length <= 500;
+// }
+
+// function setError(element, message, show) {
+//   if (show) {
+//     element.textContent = message;
+//     element.classList.add("active");
+//   } else {
+//     element.textContent = "";
+//     element.classList.remove("active");
+//   }
+// }
+
+// // Валідація форми для контролю кнопки (без показу помилок телефону та емейлу тут)
+// function validateForm() {
+//   const name = form.name.value.trim();
+//   const phone = form.phone.value.trim();
+//   const email = form.email.value.trim();
+//   const comment = form.comment.value;
+
+//   const phoneValid = validatePhone(phone);
+//   const emailValid = validateEmail(email);
+//   // Прибрали перевірку довжини коментаря для помилки
+//   const commentValid = validateCommentLength(comment);
+//   const nameValid = name !== "";
+
+//   const isFormValid = nameValid && phoneValid && emailValid && commentValid;
+//   submitBtn.disabled = !isFormValid;
+
+//   if (isFormValid) {
+//     formMessage.textContent = "";
+//     formMessage.classList.remove("error");
+//   }
+// }
+
+// // Обробка blur для телефону
+// phoneInput.addEventListener("blur", () => {
+//   const val = phoneInput.value.trim();
+//   if (val.length > prefix.length) {
+//     const valid = validatePhone(val);
+//     setError(errorPhone, "Некоректний номер", !valid);
+//   } else {
+//     setError(errorPhone, "", false);
+//   }
+//   validateForm();
+// });
+
+// // Обробка input для телефону — ховаємо помилку, якщо валідно
+// phoneInput.addEventListener("input", () => {
+//   const val = phoneInput.value.trim();
+//   if (validatePhone(val)) {
+//     setError(errorPhone, "", false);
+//   }
+// });
+
+// // Обробка blur для емейлу
+// form.email.addEventListener("blur", () => {
+//   const val = form.email.value.trim();
+//   if (val.length > 0) {
+//     const valid = validateEmail(val);
+//     setError(errorEmail, "Некоректний email", !valid);
+//   } else {
+//     setError(errorEmail, "", false);
+//   }
+//   validateForm();
+// });
+
+// // Обробка input для емейлу — ховаємо помилку, якщо валідно
+// form.email.addEventListener("input", () => {
+//   const val = form.email.value.trim();
+//   if (validateEmail(val)) {
+//     setError(errorEmail, "", false);
+//   }
+// });
+
+// // Для textarea коментаря просто оновлюємо лічильник, помилок не показуємо
+// form.comment.addEventListener("input", (e) => {
+//   const val = e.target.value;
+//   charCount.textContent = `${val.length}/500 символів`;
+//   validateForm();
+// });
+
+// // Валідація і кнопка при зміні імені
+// form.name.addEventListener("input", validateForm);
+
+// // Обробка відправки форми
+// form.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+
+//   phoneInput.dispatchEvent(new Event("blur"));
+//   form.email.dispatchEvent(new Event("blur"));
+
+//   if (submitBtn.disabled) {
+//     formMessage.textContent =
+//       "Будь ласка, виправте помилки у формі перед відправкою.";
+//     formMessage.classList.add("error");
+//     return;
+//   }
+
+//   submitBtn.disabled = true;
+//   formMessage.textContent = "Надсилаємо...";
+//   formMessage.classList.remove("error");
+
+//   const data = {
+//     name: form.name.value,
+//     phone: form.phone.value,
+//     email: form.email.value,
+//     // category: form.category.value,
+//     // subcategory: form.subcategory ? form.subcategory.value : "",
+//     comment: form.comment.value,
+//   };
+
+//   try {
+//     const res = await fetch("https://formspree.io/f/mqallyab", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(data),
+//     });
+
+//     if (res.ok) {
+//       formMessage.textContent = "Повідомлення надіслано успішно!";
+//       formMessage.classList.remove("error");
+
+//       form.name.value = "";
+//       phoneInput.value = prefix;
+//       form.email.value = "";
+//       form.comment.value = "";
+//       charCount.textContent = "0/500 символів";
+
+//       setError(errorPhone, "", false);
+//       setError(errorEmail, "", false);
+//       setError(errorComment, "", false);
+
+//       validateForm();
+//     } else {
+//       const text = await res.text();
+//       console.error("Помилка відповіді:", text);
+//       formMessage.textContent =
+//         "Не вдалося надіслати повідомлення. Спробуйте пізніше.";
+//       formMessage.classList.add("error");
+//     }
+//   } catch (err) {
+//     console.error("Помилка запиту:", err);
+//     formMessage.textContent = "Сталася помилка. Спробуйте ще раз пізніше.";
+//     formMessage.classList.add("error");
+//   } finally {
+//     submitBtn.disabled = false;
+//   }
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const categorySelect = document.getElementById("category");
+  const subcategoryContainer = document.getElementById("subcategory-container");
+  const subcategorySelect = document.getElementById("subcategory");
+
+  const subcategoryOptions = {
+    "Авто / Багатоканальний РЕБ": [
+      { value: "Завадостійка система зв'язку для БПЛА", label: "Завадостійка система зв'язку для БПЛА" },
+      { value: "Детектор БПЛА", label: "Детектор БПЛА" },
+    ],
+    "Мобільні та персональні РЕБ": [
+      { value: "РЕБ Heavy", label: "РЕБ Heavy" },
+      { value: "РЕБ Говерла", label: "РЕБ Говерла" },
+      { value: "РЕБ Говерла 十十", label: "РЕБ Говерла 十十" },
+      { value: "РЕБ Light v 2", label: "РЕБ Light v 2" },
+    ],
+    "ППРЧ для керування": [
+      { value: "Skynetix 2 + АКБ", label: "Skynetix 2 + АКБ" },
+      { value: "РЕБ Light v 1", label: "РЕБ Light v 1" },
+    ],
+  };
+
+  categorySelect.addEventListener("change", () => {
+  const selected = categorySelect.value;
+
+  if (subcategoryOptions[selected]) {
+    subcategorySelect.innerHTML = '<option value="" disabled selected hidden>Оберіть продукт</option>';
+    subcategoryOptions[selected].forEach(({ value, label }) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      subcategorySelect.appendChild(option);
+    });
+    subcategoryContainer.style.display = "block";
+    subcategorySelect.required = true;
+  } else {
+    subcategoryContainer.style.display = "none";
+    subcategorySelect.innerHTML = "";
+    subcategorySelect.required = false;
+  }
+
+  validateForm();
+});
+
+subcategorySelect.addEventListener("change", () => {
+  validateForm();
+});
+});
+
 const form = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 const charCount = document.getElementById("charCount");
 const formMessage = document.getElementById("formMessage");
 
 const phoneInput = document.getElementById("phone");
-
 const prefix = "+380 ";
 
 const errorPhone = document.getElementById("error-phone");
@@ -342,8 +670,8 @@ const errorComment = document.getElementById("error-comment");
 phoneInput.value = prefix;
 
 // Форматування номера під час вводу
-phoneInput.addEventListener("input", (e) => {
-  const raw = phoneInput.value;
+phoneInput.addEventListener("input", () => {
+  let raw = phoneInput.value;
 
   if (!raw.startsWith(prefix)) {
     phoneInput.value = prefix;
@@ -359,15 +687,12 @@ phoneInput.addEventListener("input", (e) => {
 
   phoneInput.value = prefix + formatted;
 
-  // Якщо зараз валідно — сховати помилку
   if (validatePhone(phoneInput.value.trim())) {
     setError(errorPhone, "", false);
   }
-
   validateForm();
 });
 
-// Забороняємо стерти префікс
 phoneInput.addEventListener("keydown", (e) => {
   if (
     phoneInput.selectionStart <= prefix.length &&
@@ -377,7 +702,6 @@ phoneInput.addEventListener("keydown", (e) => {
   }
 });
 
-// Забороняємо ставити курсор всередині префіксу
 phoneInput.addEventListener("focus", () => {
   setTimeout(() => {
     if (phoneInput.selectionStart < prefix.length) {
@@ -422,20 +746,24 @@ function setError(element, message, show) {
   }
 }
 
-// Валідація форми для контролю кнопки (без показу помилок телефону та емейлу тут)
+// Оновлена функція валідації форми, з перевіркою category і subcategory
 function validateForm() {
   const name = form.name.value.trim();
   const phone = form.phone.value.trim();
   const email = form.email.value.trim();
   const comment = form.comment.value;
+  const category = form.category.value;
+  const subcategory = form.subcategory ? form.subcategory.value : "";
 
   const phoneValid = validatePhone(phone);
   const emailValid = validateEmail(email);
-  // Прибрали перевірку довжини коментаря для помилки
   const commentValid = validateCommentLength(comment);
   const nameValid = name !== "";
+  const categoryValid = category !== "";
+  const subcategoryValid = !form.subcategory.required || (form.subcategory.required && subcategory !== "");
 
-  const isFormValid = nameValid && phoneValid && emailValid && commentValid;
+  const isFormValid = nameValid && phoneValid && emailValid && commentValid && categoryValid && subcategoryValid;
+
   submitBtn.disabled = !isFormValid;
 
   if (isFormValid) {
@@ -456,7 +784,6 @@ phoneInput.addEventListener("blur", () => {
   validateForm();
 });
 
-// Обробка input для телефону — ховаємо помилку, якщо валідно
 phoneInput.addEventListener("input", () => {
   const val = phoneInput.value.trim();
   if (validatePhone(val)) {
@@ -464,7 +791,6 @@ phoneInput.addEventListener("input", () => {
   }
 });
 
-// Обробка blur для емейлу
 form.email.addEventListener("blur", () => {
   const val = form.email.value.trim();
   if (val.length > 0) {
@@ -476,7 +802,6 @@ form.email.addEventListener("blur", () => {
   validateForm();
 });
 
-// Обробка input для емейлу — ховаємо помилку, якщо валідно
 form.email.addEventListener("input", () => {
   const val = form.email.value.trim();
   if (validateEmail(val)) {
@@ -484,26 +809,30 @@ form.email.addEventListener("input", () => {
   }
 });
 
-// Для textarea коментаря просто оновлюємо лічильник, помилок не показуємо
 form.comment.addEventListener("input", (e) => {
   const val = e.target.value;
   charCount.textContent = `${val.length}/500 символів`;
   validateForm();
 });
 
-// Валідація і кнопка при зміні імені
 form.name.addEventListener("input", validateForm);
 
-// Обробка відправки форми
+// Обробка відправки форми з перевіркою category та subcategory
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   phoneInput.dispatchEvent(new Event("blur"));
   form.email.dispatchEvent(new Event("blur"));
 
-  if (submitBtn.disabled) {
-    formMessage.textContent =
-      "Будь ласка, виправте помилки у формі перед відправкою.";
+  const category = form.category.value;
+  const subcategory = form.subcategory ? form.subcategory.value : "";
+
+  if (
+    submitBtn.disabled ||
+    category === "" ||
+    (form.subcategory.required && subcategory === "")
+  ) {
+    formMessage.textContent = "Будь ласка, заповніть усі обов’язкові поля.";
     formMessage.classList.add("error");
     return;
   }
@@ -516,6 +845,8 @@ form.addEventListener("submit", async (e) => {
     name: form.name.value,
     phone: form.phone.value,
     email: form.email.value,
+    category: category,
+    subcategory: subcategory,
     comment: form.comment.value,
   };
 
@@ -542,12 +873,18 @@ form.addEventListener("submit", async (e) => {
       setError(errorEmail, "", false);
       setError(errorComment, "", false);
 
+      // Приховуємо підкатегорію, якщо вона була показана
+      const subcategoryContainer = document.getElementById("subcategory-container");
+      const subcategorySelect = document.getElementById("subcategory");
+      subcategoryContainer.style.display = "none";
+      subcategorySelect.innerHTML = "";
+      subcategorySelect.required = false;
+
       validateForm();
     } else {
       const text = await res.text();
       console.error("Помилка відповіді:", text);
-      formMessage.textContent =
-        "Не вдалося надіслати повідомлення. Спробуйте пізніше.";
+      formMessage.textContent = "Не вдалося надіслати повідомлення. Спробуйте пізніше.";
       formMessage.classList.add("error");
     }
   } catch (err) {

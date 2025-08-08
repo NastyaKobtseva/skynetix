@@ -66,7 +66,6 @@
 .input-group {
   display: flex;
   gap: 16px;
-  margin-bottom: 16px;
 }
 
 .input-group div {
@@ -77,7 +76,18 @@
     flex-direction: column;
   }
 }
-.form-field {
+.category-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+.category-select:invalid {
+  color: #7a7e86;
+}
+
+.form-field-category {
   margin-bottom: 16px;
 }
 .map-frame {
@@ -92,7 +102,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 12px;
   background-color: #0f172a;
@@ -211,11 +222,11 @@ textarea {
   color: #3b82f6;
 }
 
-.info-box a[href^="tel"] {
+.info-box .phone-link {
   color: #4ade80;
 }
 
-.info-box a[href^="tel"]:hover {
+.info-box .phone-link:hover {
   color: #34d399;
 }
 

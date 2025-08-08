@@ -498,7 +498,7 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.8); /* bg-gray-900/80 */
+  background-color: rgba(17, 24, 39, 0.54);
   z-index: 0;
 }
 
@@ -544,7 +544,7 @@ img {
 /* === Grid продуктів === */
 .drone-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   padding: 60px 20px;
   max-width: 1200px;
