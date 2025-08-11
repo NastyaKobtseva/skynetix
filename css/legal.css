@@ -246,6 +246,9 @@ nav {
   font-size: 0.95rem;
   color: #aaa;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .mobile-products-list a:hover {
