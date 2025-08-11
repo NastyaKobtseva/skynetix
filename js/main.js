@@ -104,27 +104,71 @@ window.addEventListener("scroll", () => {
 
 /* hero */
 document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.getElementById("hero");
+  const highlights = document.querySelectorAll("#hero .highlight");
+
+  // Дані слайдів: фон + ключі підсвітки
+  const slides = [
+    {
+      bg: "../image/hero/bg-hero.webp",
+      activeKeywords: [], // перший слайд — без підсвітки
+    },
+    {
+      bg: "../image/hero/mobile-and-personal-bg2.webp", // заміни на свої шляхи
+      activeKeywords: ["mobile"],
+    },
+    {
+      bg: "../image/hero/multichannel-and-automotive-bg.webp",
+      activeKeywords: ["multi"],
+    },
+    {
+      bg: "../image/hero/pprch-for-control-bg.webp",
+      activeKeywords: ["ppch"],
+    },
+  ];
+
+  let currentSlide = 0;
+  const slideInterval = 2000;
+
+  function showSlide(index) {
+    const slide = slides[index];
+    // Змінюємо фон
+    hero.style.backgroundImage = `url(${slide.bg})`;
+
+    // Оновлюємо підсвітку тексту
+    highlights.forEach((el) => {
+      const keyword = el.getAttribute("data-keyword");
+      if (slide.activeKeywords.includes(keyword)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Запуск першого показу + інтервал
+  showSlide(currentSlide);
+  setInterval(nextSlide, slideInterval);
+
+  // Твої попередні слухачі кнопок
   const content = document.getElementById("heroContent");
-  const gridOverlay = document.querySelector("#hero .grid-overlay");
-  const drone = document.querySelector("#hero .drone");
+  setTimeout(() => content.classList.add("visible"), 100);
 
-  // Показуємо контент з анімацією
-  setTimeout(() => {
-    content.classList.add("visible");
-  }, 100);
-
-  // Кнопки скролу
-  document
-    .getElementById("orderBtn")
-    .addEventListener("click", () => scrollToSection("contact"));
-  document
-    .getElementById("learnBtn")
-    .addEventListener("click", () => scrollToSection("about"));
-  document
-    .getElementById("scrollBtn")
-    .addEventListener("click", () => scrollToSection("about"));
+  document.getElementById("orderBtn").addEventListener("click", () =>
+    scrollToSection("contact")
+  );
+  document.getElementById("learnBtn").addEventListener("click", () =>
+    scrollToSection("about")
+  );
+  document.getElementById("scrollBtn").addEventListener("click", () =>
+    scrollToSection("about")
+  );
 });
-
 /* about */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -166,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "mobile-personal-reb",
-      title: "Мобільні та персональні РЕБ",
+      title: "Мобільні / персональні РЕБ",
       description:
         "Компактні переносні рішення для глушіння звʼязку, призначені для індивідуального використання на полі бою.",
       image: "./image/our-products/mobile-and-personal-ew.webp",
@@ -314,297 +358,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // contact
-// document.addEventListener("DOMContentLoaded", () => {
-//   const categorySelect = document.getElementById("category");
-//   const subcategoryContainer = document.getElementById("subcategory-container");
-//   const subcategorySelect = document.getElementById("subcategory");
-
-//   const subcategoryOptions = {
-//     "auto-reb": [
-//       { value: "comm-resistant", label: "Завадостійка система зв'язку для БПЛА" },
-//       { value: "drone-detector", label: "Детектор БПЛА" },
-//     ],
-//     "mobile-reb": [
-//       { value: "reb-heavy", label: "РЕБ Heavy" },
-//       { value: "reb-goverla", label: "РЕБ Говерла" },
-//       { value: "reb-goverla-plus", label: "РЕБ Говерла 十十" },
-//       { value: "reb-light-v2", label: "РЕБ Light v 2" },
-//     ],
-//     "pprch": [
-//       { value: "skynetix-2-akb", label: "Skynetix 2 + АКБ" },
-//       { value: "reb-light-v1", label: "РЕБ Light v 1" },
-//     ],
-//   };
-
-//   categorySelect.addEventListener("change", () => {
-//     const selected = categorySelect.value;
-
-//     // Якщо для цієї категорії є підкатегорії — показуємо і заповнюємо select
-//     if (subcategoryOptions[selected]) {
-//       // Очищаємо попередні варіанти
-//       subcategorySelect.innerHTML = '<option value="" disabled selected hidden>Оберіть продукт</option>';
-
-//       // Додаємо нові опції
-//       subcategoryOptions[selected].forEach(({ value, label }) => {
-//         const option = document.createElement("option");
-//         option.value = value;
-//         option.textContent = label;
-//         subcategorySelect.appendChild(option);
-//       });
-
-//       // Показуємо блок з підкатегоріями
-//       subcategoryContainer.style.display = "block";
-//       subcategorySelect.required = true;
-//     } else {
-//       // Якщо нема підкатегорій — ховаємо блок і очищуємо
-//       subcategoryContainer.style.display = "none";
-//       subcategorySelect.innerHTML = "";
-//       subcategorySelect.required = false;
-//     }
-//   });
-// });
-
-
-
-
-
-// const form = document.getElementById("contactForm");
-// const submitBtn = document.getElementById("submitBtn");
-// const charCount = document.getElementById("charCount");
-// const formMessage = document.getElementById("formMessage");
-
-// const phoneInput = document.getElementById("phone");
-
-// const prefix = "+380 ";
-
-// const errorPhone = document.getElementById("error-phone");
-// const errorEmail = document.getElementById("error-email");
-// const errorComment = document.getElementById("error-comment");
-
-// // Початкове значення поля з префіксом
-// phoneInput.value = prefix;
-
-// // Форматування номера під час вводу
-// phoneInput.addEventListener("input", (e) => {
-//   const raw = phoneInput.value;
-
-//   if (!raw.startsWith(prefix)) {
-//     phoneInput.value = prefix;
-//     return;
-//   }
-
-//   const rest = raw.slice(prefix.length).replace(/[^\d]/g, "");
-//   let formatted = "";
-
-//   if (rest.length > 0) formatted += rest.slice(0, 2);
-//   if (rest.length >= 3) formatted += " " + rest.slice(2, 5);
-//   if (rest.length >= 6) formatted += " " + rest.slice(5, 9);
-
-//   phoneInput.value = prefix + formatted;
-
-//   // Якщо зараз валідно — сховати помилку
-//   if (validatePhone(phoneInput.value.trim())) {
-//     setError(errorPhone, "", false);
-//   }
-
-//   validateForm();
-// });
-
-// // Забороняємо стерти префікс
-// phoneInput.addEventListener("keydown", (e) => {
-//   if (
-//     phoneInput.selectionStart <= prefix.length &&
-//     (e.key === "Backspace" || e.key === "Delete")
-//   ) {
-//     e.preventDefault();
-//   }
-// });
-
-// // Забороняємо ставити курсор всередині префіксу
-// phoneInput.addEventListener("focus", () => {
-//   setTimeout(() => {
-//     if (phoneInput.selectionStart < prefix.length) {
-//       phoneInput.setSelectionRange(
-//         phoneInput.value.length,
-//         phoneInput.value.length
-//       );
-//     }
-//   }, 0);
-// });
-// phoneInput.addEventListener("click", () => {
-//   if (phoneInput.selectionStart < prefix.length) {
-//     phoneInput.setSelectionRange(
-//       phoneInput.value.length,
-//       phoneInput.value.length
-//     );
-//   }
-// });
-
-// // Валідаційні функції
-// function validatePhone(value) {
-//   const phoneRegex = /^\+380\s\d{2}\s\d{3}\s\d{4}$/;
-//   return phoneRegex.test(value);
-// }
-
-// function validateEmail(value) {
-//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//   return emailRegex.test(value);
-// }
-
-// function validateCommentLength(value) {
-//   return value.length <= 500;
-// }
-
-// function setError(element, message, show) {
-//   if (show) {
-//     element.textContent = message;
-//     element.classList.add("active");
-//   } else {
-//     element.textContent = "";
-//     element.classList.remove("active");
-//   }
-// }
-
-// // Валідація форми для контролю кнопки (без показу помилок телефону та емейлу тут)
-// function validateForm() {
-//   const name = form.name.value.trim();
-//   const phone = form.phone.value.trim();
-//   const email = form.email.value.trim();
-//   const comment = form.comment.value;
-
-//   const phoneValid = validatePhone(phone);
-//   const emailValid = validateEmail(email);
-//   // Прибрали перевірку довжини коментаря для помилки
-//   const commentValid = validateCommentLength(comment);
-//   const nameValid = name !== "";
-
-//   const isFormValid = nameValid && phoneValid && emailValid && commentValid;
-//   submitBtn.disabled = !isFormValid;
-
-//   if (isFormValid) {
-//     formMessage.textContent = "";
-//     formMessage.classList.remove("error");
-//   }
-// }
-
-// // Обробка blur для телефону
-// phoneInput.addEventListener("blur", () => {
-//   const val = phoneInput.value.trim();
-//   if (val.length > prefix.length) {
-//     const valid = validatePhone(val);
-//     setError(errorPhone, "Некоректний номер", !valid);
-//   } else {
-//     setError(errorPhone, "", false);
-//   }
-//   validateForm();
-// });
-
-// // Обробка input для телефону — ховаємо помилку, якщо валідно
-// phoneInput.addEventListener("input", () => {
-//   const val = phoneInput.value.trim();
-//   if (validatePhone(val)) {
-//     setError(errorPhone, "", false);
-//   }
-// });
-
-// // Обробка blur для емейлу
-// form.email.addEventListener("blur", () => {
-//   const val = form.email.value.trim();
-//   if (val.length > 0) {
-//     const valid = validateEmail(val);
-//     setError(errorEmail, "Некоректний email", !valid);
-//   } else {
-//     setError(errorEmail, "", false);
-//   }
-//   validateForm();
-// });
-
-// // Обробка input для емейлу — ховаємо помилку, якщо валідно
-// form.email.addEventListener("input", () => {
-//   const val = form.email.value.trim();
-//   if (validateEmail(val)) {
-//     setError(errorEmail, "", false);
-//   }
-// });
-
-// // Для textarea коментаря просто оновлюємо лічильник, помилок не показуємо
-// form.comment.addEventListener("input", (e) => {
-//   const val = e.target.value;
-//   charCount.textContent = `${val.length}/500 символів`;
-//   validateForm();
-// });
-
-// // Валідація і кнопка при зміні імені
-// form.name.addEventListener("input", validateForm);
-
-// // Обробка відправки форми
-// form.addEventListener("submit", async (e) => {
-//   e.preventDefault();
-
-//   phoneInput.dispatchEvent(new Event("blur"));
-//   form.email.dispatchEvent(new Event("blur"));
-
-//   if (submitBtn.disabled) {
-//     formMessage.textContent =
-//       "Будь ласка, виправте помилки у формі перед відправкою.";
-//     formMessage.classList.add("error");
-//     return;
-//   }
-
-//   submitBtn.disabled = true;
-//   formMessage.textContent = "Надсилаємо...";
-//   formMessage.classList.remove("error");
-
-//   const data = {
-//     name: form.name.value,
-//     phone: form.phone.value,
-//     email: form.email.value,
-//     // category: form.category.value,
-//     // subcategory: form.subcategory ? form.subcategory.value : "",
-//     comment: form.comment.value,
-//   };
-
-//   try {
-//     const res = await fetch("https://formspree.io/f/mqallyab", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(data),
-//     });
-
-//     if (res.ok) {
-//       formMessage.textContent = "Повідомлення надіслано успішно!";
-//       formMessage.classList.remove("error");
-
-//       form.name.value = "";
-//       phoneInput.value = prefix;
-//       form.email.value = "";
-//       form.comment.value = "";
-//       charCount.textContent = "0/500 символів";
-
-//       setError(errorPhone, "", false);
-//       setError(errorEmail, "", false);
-//       setError(errorComment, "", false);
-
-//       validateForm();
-//     } else {
-//       const text = await res.text();
-//       console.error("Помилка відповіді:", text);
-//       formMessage.textContent =
-//         "Не вдалося надіслати повідомлення. Спробуйте пізніше.";
-//       formMessage.classList.add("error");
-//     }
-//   } catch (err) {
-//     console.error("Помилка запиту:", err);
-//     formMessage.textContent = "Сталася помилка. Спробуйте ще раз пізніше.";
-//     formMessage.classList.add("error");
-//   } finally {
-//     submitBtn.disabled = false;
-//   }
-// });
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const categorySelect = document.getElementById("category");
   const subcategoryContainer = document.getElementById("subcategory-container");

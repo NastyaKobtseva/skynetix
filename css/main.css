@@ -1,8 +1,9 @@
 @charset "UTF-8";
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
+  overflow-x: hidden;
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,10 +21,8 @@ body {
   overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, li {
@@ -44,6 +43,8 @@ a {
   max-width: 1200px; /* або 1140px, або те, що тобі потрібно */
   margin: 0 auto;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 header {
@@ -273,6 +274,7 @@ nav {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
 }
 
 /* --- Темний градієнтний оверлей --- */
@@ -319,6 +321,16 @@ nav {
   margin-bottom: 2rem;
   line-height: 1.5;
   color: #bbb;
+}
+
+.highlight {
+  color: #bbb; /* базовий колір */
+  transition: color 2s linear;
+}
+
+.highlight.active {
+  color: #ffffff; /* підсвітка */
+  font-weight: 700;
 }
 
 /* --- Кнопки --- */
@@ -403,7 +415,7 @@ nav {
   }
 }
 #about {
-  padding: 5rem 1.25rem;
+  padding: 5rem 0;
   background-color: #2d3748; /* gray-800 */
 }
 
@@ -459,6 +471,7 @@ nav {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: none !important;
 }
 
 .about-image.visible {
@@ -539,7 +552,7 @@ nav {
 
 @media (max-width: 480px) {
   #about {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
   #about h2 {
     font-size: 2rem;
@@ -571,7 +584,7 @@ nav {
 /* Планшетна версія 481px - 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   #about {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   #about h2 {
     font-size: 2.5rem;
@@ -601,7 +614,7 @@ nav {
   }
 }
 #products {
-  padding: 80px 20px;
+  padding: 80px 0;
   background-color: #1a202c;
 }
 
@@ -838,7 +851,7 @@ nav {
 
 @media (max-width: 480px) {
   #products {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
   #products h2 {
     font-size: 2rem;
@@ -878,7 +891,7 @@ nav {
 /* Планшетна версія 481px - 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   #products {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   #products h2 {
     font-size: 2.5rem;
@@ -910,7 +923,7 @@ nav {
   }
 }
 .why-skynetix-section {
-  padding: 80px 20px;
+  padding: 80px 0;
   background-color: #1f2937;
   color: white;
 }
@@ -1084,16 +1097,16 @@ nav {
 
 @media (max-width: 480px) {
   .why-skynetix-section {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
   .why-skynetix-section {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
 }
 .contact-section {
-  padding: 80px 20px;
+  padding: 80px 0;
   background-color: #0f172a;
   color: #ffffff;
 }
@@ -1135,7 +1148,7 @@ nav {
 
 @media (min-width: 1024px) {
   .contact-section {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
 }
 @media (min-width: 768px) {
@@ -1411,9 +1424,21 @@ input[type=tel] {
   letter-spacing: 0.5px;
 }
 
+.error-message {
+  color: #f87171; /* червоний */
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 16px; /* щоб не скакало при появі/зникненні */
+  visibility: hidden;
+}
+
+.error-message.active {
+  visibility: visible;
+}
+
 @media (max-width: 480px) {
   .contact-section {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
   .section-header h2 {
     font-size: 28px;
@@ -1439,7 +1464,7 @@ input[type=tel] {
 /* Планшетна версія - від 481px до 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   .contact-section {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   .section-header h2 {
     font-size: 34px;
@@ -1462,23 +1487,11 @@ input[type=tel] {
     padding: 13px;
   }
 }
-.error-message {
-  color: #f87171; /* червоний */
-  font-size: 12px;
-  margin-top: 4px;
-  min-height: 16px; /* щоб не скакало при появі/зникненні */
-  visibility: hidden;
-}
-
-.error-message.active {
-  visibility: visible;
-}
-
 .footer {
   background-color: #111827; /* dark gray */
   border-top: 1px solid #1f2937; /* darker border */
   color: #d1d5db; /* light gray text */
-  padding: 80px 20px;
+  padding: 80px 0;
   font-family: "Inter", sans-serif;
 }
 
@@ -1657,12 +1670,12 @@ input[type=tel] {
 /* Responsive tweaks */
 @media (max-width: 480px) {
   .footer {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
 }
 @media (min-width: 320px) and (max-width: 768px) {
   .footer {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   .footer__company {
     grid-column: span 1;

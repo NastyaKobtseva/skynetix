@@ -717,7 +717,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainSubtitle = document.getElementById('main-subtitle');
   const lastUpdated = document.getElementById('last-updated');
   const mainContentBlocks = document.getElementById('main-content-blocks');
-
+  function setPageTitle(title) {
+    const titleElement = document.querySelector('head title');
+    if (titleElement) {
+      titleElement.textContent = title;
+    }
+  }
   const renderContent = (pageKey) => {
     const data = pageData[pageKey];
     if (!data) {
@@ -728,7 +733,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Встановлюємо текст і додаємо клас для анімації
     mainTitle.textContent = data.title;
     mainTitle.classList.add('fade-up');
-
+    setPageTitle(data.title);
     mainSubtitle.textContent = data.subtitle;
     mainSubtitle.classList.add('fade-up');
 

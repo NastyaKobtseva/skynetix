@@ -1,5 +1,5 @@
 #about {
-    padding: 5rem 1.25rem;
+    padding: 5rem 0;
     background-color: #2d3748; /* gray-800 */
 }
 #about .header {
@@ -50,6 +50,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    transform: none !important;
   }
   .about-image.visible {
     opacity: 1;
@@ -118,7 +119,7 @@
   }
 @media (max-width: 480px) {
   #about {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
   #about h2 {
     font-size: 2rem;
@@ -151,7 +152,7 @@
 /* Планшетна версія 481px - 767px */
 @media (min-width: 481px) and (max-width: 767px) {
   #about {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   #about h2 {
     font-size: 2.5rem;

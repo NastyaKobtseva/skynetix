@@ -1,8 +1,9 @@
 @charset "UTF-8";
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
+  overflow-x: hidden;
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,10 +21,8 @@ body {
   overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, li {
@@ -44,6 +43,8 @@ a {
   max-width: 1200px; /* або 1140px, або те, що тобі потрібно */
   margin: 0 auto;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 header {
@@ -266,7 +267,7 @@ nav {
   background-color: #111827; /* dark gray */
   border-top: 1px solid #1f2937; /* darker border */
   color: #d1d5db; /* light gray text */
-  padding: 80px 20px;
+  padding: 80px 0;
   font-family: "Inter", sans-serif;
 }
 
@@ -445,12 +446,12 @@ nav {
 /* Responsive tweaks */
 @media (max-width: 480px) {
   .footer {
-    padding: 30px 20px;
+    padding: 30px 0;
   }
 }
 @media (min-width: 320px) and (max-width: 768px) {
   .footer {
-    padding: 50px 20px;
+    padding: 50px 0;
   }
   .footer__company {
     grid-column: span 1;

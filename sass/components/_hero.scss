@@ -9,6 +9,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
   }
 
   /* --- Темний градієнтний оверлей --- */
@@ -60,7 +61,15 @@
     line-height: 1.5;
     color: #bbb;
   }
+.highlight {
+  color: #bbb; /* базовий колір */
+  transition: color 2s linear;
+}
 
+.highlight.active {
+  color: #ffffff; /* підсвітка */
+  font-weight: 700;
+}
   /* --- Кнопки --- */
   #hero .buttons {
     display: flex;
