@@ -110,19 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Дані слайдів: фон + ключі підсвітки
   const slides = [
     {
-      bg: "../image/hero/bg-hero.webp",
+      bg: "image/hero/bg-hero.webp",
       activeKeywords: [], // перший слайд — без підсвітки
     },
     {
-      bg: "../image/hero/mobile-and-personal-bg2.webp", // заміни на свої шляхи
+      bg: "image/hero/mobile-and-personal-bg2.webp", // заміни на свої шляхи
       activeKeywords: ["mobile"],
     },
     {
-      bg: "../image/hero/multichannel-and-automotive-bg.webp",
+      bg: "image/hero/multichannel-and-automotive-bg.webp",
       activeKeywords: ["multi"],
     },
     {
-      bg: "../image/hero/pprch-for-control-bg.webp",
+      bg: "image/hero/pprch-for-control-bg.webp",
       activeKeywords: ["ppch"],
     },
   ];
