@@ -107,43 +107,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const hero = document.getElementById("hero");
   const highlights = document.querySelectorAll("#hero .highlight");
 
-  // Дані слайдів: фон + ключі підсвітки
   const slides = [
-    {
-      bg: "image/hero/bg-hero.webp",
-      activeKeywords: [], // перший слайд — без підсвітки
-    },
-    {
-      bg: "image/hero/mobile-and-personal-bg2.webp", // заміни на свої шляхи
-      activeKeywords: ["mobile"],
-    },
-    {
-      bg: "image/hero/multichannel-and-automotive-bg.webp",
-      activeKeywords: ["multi"],
-    },
-    {
-      bg: "image/hero/pprch-for-control-bg.webp",
-      activeKeywords: ["ppch"],
-    },
+    { bg: "image/hero/bg-hero.webp", activeKeywords: [] },
+    { bg: "image/hero/mobile-and-personal-bg2.webp", activeKeywords: ["mobile"] },
+    { bg: "image/hero/multichannel-and-automotive-bg.webp", activeKeywords: ["multi"] },
+    { bg: "image/hero/pprch-for-control-bg.webp", activeKeywords: ["ppch"] },
   ];
 
   let currentSlide = 0;
   const slideInterval = 2000;
+  let slideTimer;
+
+  // Підвантажуємо всі зображення
+  function preloadImages(slides) {
+    slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.bg;
+    });
+  }
 
   function showSlide(index) {
     const slide = slides[index];
-    // Змінюємо фон
-    hero.style.backgroundImage = `url(${slide.bg})`;
+    const img = new Image();
+    img.src = slide.bg;
+    img.onload = () => {
+      hero.style.backgroundImage = `url(${slide.bg})`;
 
-    // Оновлюємо підсвітку тексту
-    highlights.forEach((el) => {
-      const keyword = el.getAttribute("data-keyword");
-      if (slide.activeKeywords.includes(keyword)) {
-        el.classList.add("active");
-      } else {
-        el.classList.remove("active");
-      }
-    });
+      highlights.forEach(el => {
+        const keyword = el.getAttribute("data-keyword");
+        if (slide.activeKeywords.includes(keyword)) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
+      });
+    };
   }
 
   function nextSlide() {
@@ -151,14 +149,23 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  // Запуск першого показу + інтервал
-  showSlide(currentSlide);
-  setInterval(nextSlide, slideInterval);
+  // Старт
+  preloadImages(slides);
 
-  // Твої попередні слухачі кнопок
+  // Спершу показуємо перший слайд після завантаження першого зображення
+  const firstImage = new Image();
+  firstImage.src = slides[0].bg;
+  firstImage.onload = () => {
+    showSlide(currentSlide);
+    // Запускаємо автоматичне переключення слайдів
+    slideTimer = setInterval(nextSlide, slideInterval);
+  };
+
+  // Анімація появи контенту
   const content = document.getElementById("heroContent");
   setTimeout(() => content.classList.add("visible"), 100);
 
+  // Обробники кнопок
   document.getElementById("orderBtn").addEventListener("click", () =>
     scrollToSection("contact")
   );
