@@ -272,7 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.getElementById("productsFooter");
   const cards = document.querySelectorAll(".product-card");
 
-  const observerOptions = { threshold: 0.3 };
+  const observerOptions = { threshold: 0.1 };
+
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
