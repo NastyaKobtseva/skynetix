@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = [
     {
       id: "multi-channel-vehicle-reb",
-      title: "Багатоканальні, мобіл. РЕБ",
+      title: "Авто / Багатоканальні РЕБ",
       description: "Потужні мобільні системи радіоелектронної боротьби, встановлені на автомобілях для придушення широкого спектра сигналів.",
       image: "./image/our-products/multichannel-and-automotive-ew.webp",
       link: "./product.html?product=multi",
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "mobile-personal-reb",
-      title: "Персональні РЕБ",
+      title: "Персональні / мобільні РЕБ",
       description: "Компактні переносні рішення для глушіння звʼязку, призначені для індивідуального використання на полі бою.",
       image: "./image/our-products/mobile-and-personal-ew.webp",
       link: "./product.html?product=mobile",
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       id: "frequency-hopping-control",
-      title: "ППРЧ та детектування",
+      title: "ППРЧ для керування",
       description: "Технології перестрибуючої частоти для надійного управління звʼязком та протидії ворожому глушінню.",
       image: "./image/our-products/pprch-for-control.webp",
       link: "./product.html?product=control",

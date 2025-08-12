@@ -108,7 +108,7 @@ window.addEventListener('scroll', () => {
 // product 
 const PRODUCTS = {
   multi: {
-    title: "Багатоканальні та мобільні РЕБ",
+    title: "Авто / Багатоканальні РЕБ",
     description: "Потужні мобільні системи радіоелектронної боротьби, встановлені на автомобілях для придушення широкого спектра сигналів.",
     heroImage: "./image/product/bg-product.webp", // загальна картинка на фоні
     items: [
@@ -230,7 +230,7 @@ const PRODUCTS = {
   },
 
   mobile: {
-    title: "Персональні РЕБ",
+    title: "Персональні / мобільні РЕБ",
     description: "Компактні переносні рішення для глушіння звʼязку, призначені для індивідуального використання на полі бою.",
     heroImage: "./image/product/bg-product.webp",
     items: [
@@ -320,7 +320,7 @@ const PRODUCTS = {
   },
 
   control: {
-    title: "ППРЧ та детектування",
+    title: "ППРЧ для керування",
     description: "Технології перестрибуючої частоти для надійного управління звʼязком та протидії ворожому глушінню.",
     heroImage: "./image/product/bg-product.webp",
     items: [
