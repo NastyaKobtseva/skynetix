@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = [
     {
       id: "multi-channel-vehicle-reb",
-      title: "Багатоканальні РЕБ",
+      title: "Багатоканальні, мобіл. РЕБ",
       description: "Потужні мобільні системи радіоелектронної боротьби, встановлені на автомобілях для придушення широкого спектра сигналів.",
       image: "./image/our-products/multichannel-and-automotive-ew.webp",
       link: "./product.html?product=multi",
