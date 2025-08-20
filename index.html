@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="favicon" rel="shortcut icon" href="./image/header/logo-white.svg"> 
+    <link id="favicon" rel="icon" type="image/png" href="/image/header/logo-white-png.png">
     <link rel="canonical" href="https://skynetix.org">
     <title>Skynetix</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,19 +12,21 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/main.min.css">
 
-    <meta name="description" content="Skynetix — інноваційні рішення у сфері радіоелектронної боротьби: мобільні, персональні, багатоканальні РЕБ-системи та технології ППРЧ.">
-    <meta property="og:title" content="Skynetix — Передові рішення в РЕБ та ППРЧ">
-    <meta property="og:description" content="Розробляємо мобільні, персональні та багатоканальні системи РЕБ з підтримкою ППРЧ для радіоелектронного домінування в складних умовах.">
+    <meta name="description" content="Skynetix — інноваційні рішення у сфері радіоелектронної боротьби: мобільні, персональні, багатоканальні РЕБ-системи, системи радіоелектронної розвідки та технології ППРЧ.">
+    <meta property="og:title" content="Skynetix — Передові рішення в РЕБ, системах радіоелектронної розвідки та ППРЧ">
+    <meta property="og:description" content="Розробка і виробництво систем РЕБ та РЕР. Ми створюємо мобільні, персональні та багатоканальні рішення з підтримкою ППРЧ для ефективного контролю радіоелектронного простору.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://skynetix.org">
     <meta property="og:image" content="https://skynetix.org/image/header/skynetix-cover.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="uk_UA">
+    <meta name="application-name" content="Skynetix">
+    <meta name="apple-mobile-web-app-title" content="Skynetix">
     <meta property="og:site_name" content="Skynetix">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Skynetix — Передові рішення в РЕБ та ППРЧ">
-    <meta name="twitter:description" content="Інноваційні технології РЕБ: мобільні, персональні, багатоканальні рішення та перестрибування частот (ППРЧ) для сучасних загроз.">
+    <meta name="twitter:title" content="Skynetix — Передові рішення в РЕБ, системах радіоелектронної розвідки та ППРЧ">
+    <meta name="twitter:description" content="Інноваційні технології РЕБ та системи радіоелектронної розвідки: мобільні, персональні, багатоканальні рішення і перестрибування частот (ППРЧ) для сучасних загроз.">
     <meta name="twitter:image" content="https://skynetix.org/image/header/skynetix-cover.jpg">
 </head>
 <body>
@@ -187,6 +189,7 @@
                     <div class="contact-form-container">
                         <h3>Надішліть нам повідомлення</h3>
                         <form id="contactForm">
+                            <input type="hidden" name="access_key" value="6ec6e465-4d45-4e74-8963-620c18c0db94">
                             <div class="input-group">
                                 <div>
                                     <label for="name">ПІБ *</label>
@@ -224,7 +227,9 @@
                                 <div class="char-count" id="charCount">0/500 символів</div>
                                 <div class="error-message" id="error-comment"></div>
                             </div>
-
+                            <!-- Honeypot для спаму -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+                            <input type="hidden" name="redirect" value="https://mywebsite.com/thanks.html">
                             <button type="submit" id="submitBtn" disabled>Надіслати</button>
                             <div class="form-message" id="formMessage"></div>
                         </form>
@@ -352,7 +357,6 @@
             </div>
         </div>
     </footer>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="./js/main.js"></script>
 </body>
 </html>

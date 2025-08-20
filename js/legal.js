@@ -1,22 +1,17 @@
 // svg
-function updateFavicon() {
+document.addEventListener("DOMContentLoaded", () => {
   const favicon = document.getElementById("favicon");
-  const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const darkThemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (darkTheme) {
-    favicon.href = "./image/header/logo-white.svg"; // для темної теми — біла іконка
-  } else {
-    favicon.href = "./image/header/logo-black.svg"; // для світлої теми — чорна іконка
+  function updateFavicon() {
+    favicon.href = darkThemeMedia.matches 
+      ? "/image/header/logo-white-png.png"
+      : "/image/header/logo-black-png.png";
   }
-}
 
-// Викликаємо одразу при завантаженні
-updateFavicon();
-
-// Слухаємо зміни теми в реальному часі
-window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", updateFavicon);
+  updateFavicon();
+  darkThemeMedia.addEventListener("change", updateFavicon);
+});
 
 // /* --- Header --- */
 function scrollToSection(id) {

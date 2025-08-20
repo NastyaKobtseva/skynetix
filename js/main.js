@@ -1,20 +1,17 @@
 // svg
-function updateFavicon() {
+document.addEventListener("DOMContentLoaded", () => {
   const favicon = document.getElementById("favicon");
-  const darkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const darkThemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (darkTheme) {
-    favicon.href = "./image/header/logo-white.svg"; // для темної теми — біла іконка
-  } else {
-    favicon.href = "./image/header/logo-black.svg"; // для світлої теми — чорна іконка
+  function updateFavicon() {
+    favicon.href = darkThemeMedia.matches 
+      ? "/image/header/logo-white-png.png"
+      : "/image/header/logo-black-png.png";
   }
-}
 
-updateFavicon();
-
-window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", updateFavicon);
+  updateFavicon();
+  darkThemeMedia.addEventListener("change", updateFavicon);
+});
 
 // /* --- Header --- */
 function scrollToSection(id) {
@@ -607,10 +604,11 @@ form.addEventListener("submit", async (e) => {
     category: category,
     subcategory: subcategory,
     comment: form.comment.value,
+    access_key: form.querySelector(`input[name="access_key"]`).value,
   };
 
   try {
-    const res = await fetch("https://formspree.io/f/mqallyab", {
+    const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -632,7 +630,10 @@ form.addEventListener("submit", async (e) => {
       setError(errorEmail, "", false);
       setError(errorComment, "", false);
 
-      // Приховуємо підкатегорію, якщо вона була показана
+      // === Скидання категорії і підкатегорії ===
+      const categorySelect = document.getElementById("category");
+      categorySelect.selectedIndex = 0;
+
       const subcategoryContainer = document.getElementById("subcategory-container");
       const subcategorySelect = document.getElementById("subcategory");
       subcategoryContainer.style.display = "none";
